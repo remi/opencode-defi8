@@ -1,0 +1,16 @@
+!!! 5
+%html
+  %head
+    %script{ :src => "//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" }
+    %script{ :src => "/application.js" }
+    %link{ :href => "/css/screen.css", :type => "text/css", :rel => "stylesheet" }
+  %body
+    .fail
+    .success
+      Bravo, vous avez identifié des gens.
+    %ul
+      - @cards.each do |card|
+        %li.down{ :data => { :id => card.id }, :style => "-webkit-transform: rotate(#{[-5, 0, 5].sample}deg) scale(#{Random.rand(0.9..1.2)});" }
+          %span
+            %img{ :width => 200, :height => 200, :src => "/avatars/#{card.id}#{card.format}.png" }
+    .clear
